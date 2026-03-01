@@ -4,6 +4,7 @@ from django.http import HttpResponse
 
 from django.http import HttpResponse
 
+
 def home(request):
     html = """
     <h1 align="center">Hello my site</h1>
