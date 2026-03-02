@@ -1,0 +1,237 @@
+{% load static %}
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HomeEdu — Landing</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#top">HomeEdu</a>
+
+      <nav class="navlinks" id="navlinks" aria-label="Asosiy menyu">
+        <a href="#home">Bosh sahifa</a>
+        <a href="#maktab">Maktab</a>
+        <a href="#ota">Ota-onalar</a>
+        <a href="#kurslar">Kurslar</a>
+        <a href="#vakansiya">Vakansiya</a>
+        <a href="#aloqa">Aloqa</a>
+      </nav>
+
+      <div class="profile">
+        <img class="flag" src="{% static 'img/flag.jpg' %}" alt="UZ flag" />
+        <span>Profil</span>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Menyuni ochish/yopish" aria-controls="navlinks" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-img">
+          <img src="{% static 'img/hero_robot.jpg' %}" alt="HomeEdu telefon maketi" />
+        </div>
+
+        <div class="hero-content">
+          <h1 class="hero-title">Kelajagingizni biz<br/>bilan quring</h1>
+
+          <div class="hero-card">
+            <h3>#1&nbsp;&nbsp; Bilim, kasb va muvaffaqiyat bir joyda</h3>
+            <p>
+              Har bir insonning ichida katta salohiyat bor. Ba’zan faqat imkoniyat
+              va to‘g‘ri yo‘l ko‘rsatish kerak bo‘ladi. Biz sizga bilim berish, kasb
+              o‘rgatish va muvaffaqiyat sari ishonch bilan qadam tashlashingiz uchun
+              shu yerdamiz.
+            </p>
+            <p>
+              Bu platforma shunchaki darslar emas — bu o‘sish makoni. Bu yerda siz fanlarni
+              mustahkamlaysiz, zamonaviy kasblarni o‘rganasiz va o‘zingizga mos ish
+              imkoniyatlariga yaqinlashasiz.
+            </p>
+          </div>
+
+          <a class="cta" href="#kurslar">
+            Ro’yxatdan o’ting
+            <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why" id="nima">
+      <div class="container">
+        <div class="why-top">
+          <div>
+            <h2 class="section-title">NIMA UCHUN BIZ</h2>
+            <p class="section-sub">
+              Biz har bir bolada cheksiz salohiyat borligiga ishonamiz.<br />
+              To‘g‘ri yo‘l bilan har qanday orzu haqiqatga aylanishi mumkin.
+            </p>
+          </div>
+
+          <img class="why-check" src="{% static 'img/why_check.png' %}" alt="Check" />
+        </div>
+
+        <div class="why-stage">
+          <img class="why-ill left" src="{% static 'img/why_thinkman.png' %}" alt="" />
+
+          <div class="why-card c1">
+            <div class="why-card-title">#1&nbsp; Cheklov emas, imkoniyat</div>
+            <div class="why-card-text">
+              Biz har bir bolada cheksiz salohiyat borligiga ishonamiz.
+              To‘g‘ri yo‘l va qo‘llab-quvvatlash bilan har qanday orzu haqiqatga aylanishi mumkin.
+            </div>
+          </div>
+
+          <img class="why-ill mid" src="{% static 'img/why_sitgirl.png' %}" alt="" />
+
+          <div class="why-card c2">
+            <div class="why-card-title">#2&nbsp; Ta’limdan kasbga, kasbdan kelajakka</div>
+            <div class="why-card-text">
+              Nazariy bilim bilan cheklanmaymiz. O‘rganish, amaliyot va ish imkoniyatini
+              bir joyda taqdim etamiz
+            </div>
+          </div>
+
+          <div class="why-card c3">
+            <div class="why-card-title">#3&nbsp; Har bir qadamda yoningizdamiz</div>
+            <div class="why-card-text">
+              Professional mentorlar, ota-onalar uchun maslahatlar va real ish beruvchilar bilan
+              aloqa — barchasi bir platformada.
+            </div>
+          </div>
+
+          <img class="why-ill bottom" src="{% static 'img/why_greenman.png' %}" alt="" />
+
+          <div class="why-card c4">
+            <div class="why-card-title">#4&nbsp; Muvaffaqiyatingiz bizning maqsadimiz</div>
+            <div class="why-card-text">
+              Biz shunchaki kurs bermaymiz. Biz ishonch, ko‘nikma va mustaqil kelajak qurish imkonini yaratamiz.
+            </div>
+          </div>
+
+          <img class="why-ill right" src="{% static 'img/why_pointer.png' %}" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS + PARTNERS -->
+    <section class="how" id="qanday">
+      <div class="container">
+        <div class="how-title-row">
+          <h2 class="section-title">Qanday Ishlaydi</h2>
+          <img class="how-ill" src="{% static 'img/why_reader.png' %}" alt="" />
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-title">O‘rgan</div>
+            <div class="step-text">O‘zingizga mos kasbni tanlang va professional kurslarni o‘rganing.</div>
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="step">
+            <div class="step-title">Mashq qil</div>
+            <div class="step-text">Real loyihalar ustida ishlang va portfolio yarating.</div>
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="step">
+            <div class="step-title">Ish top</div>
+            <div class="step-text">Hamkor kompaniyalar bilan bog‘laning va karerangizni boshlang.</div>
+          </div>
+        </div>
+
+        <h2 class="section-title partners-title">Hamkorlarimiz</h2>
+
+        <div class="partners">
+          <img src="{% static 'img/logo_unicef.jpg' %}" alt="UNICEF" />
+          <img src="{% static 'img/logo_yoshlar.jpg' %}" alt="Yoshlar ishlari agentligi" />
+          <img src="{% static 'img/logo_payme.jpg' %}" alt="Payme" />
+          <img src="{% static 'img/logo_click.png' %}" alt="Click" />
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" id="aloqa">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">HomeEdu</div>
+        <p class="muted">
+          O‘zbekiston Respublikasi yoshlarining<br/>
+          ta’lim hamda kasbiy salohiyatini oshirish<br/>
+          hamda qo‘llab quvvatlash dasturi
+        </p>
+
+        <div class="footer-contact">
+          <div class="muted">Murojaat uchun:</div>
+          <div class="strong">+998992397752</div>
+          <div class="muted">@meemoryreeboot</div>
+        </div>
+
+        <div class="copy muted">© 2026 Homeedu. Barcha huquqlar himoyalangan.</div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-head">Bosh Sahifa</div>
+        <a href="#nima">Nima uchun biz</a>
+        <a href="#qanday">Qanday ishlaydi</a>
+        <a href="#qanday">Hamkorlarimiz</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-head">Maktab</div>
+        <a href="#maktab">Sinflar</a>
+        <a href="#maktab">Fanlar</a>
+        <a href="#maktab">Mavzular</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-head">Ota-Onalar</div>
+        <a href="#ota">Treninglar</a>
+        <a href="#ota">Video darslar</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-head">Kurslar</div>
+        <a href="#kurslar">Sohalar</a>
+        <a href="#kurslar">Sertifikatlar</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-head">Vakansiyalar</div>
+        <a href="#vakansiya">Ishlar</a>
+        <a href="#vakansiya">Rezyume</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-head">Aloqa</div>
+        <div class="muted">Tashkent, Uzbekistan</div>
+        <div class="muted">homeedu@gmail.com</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
