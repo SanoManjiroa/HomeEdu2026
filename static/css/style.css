@@ -21,7 +21,10 @@ body{
   width:min(1200px, calc(100% - 64px));
   margin-inline:auto;
 }
-
+.profil{
+ margin-top:-10px;
+ font-size:25px;
+}
 /* HEADER */
 .header{
   position:sticky;
@@ -60,7 +63,7 @@ body{
 .profile{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:15px;
   font-weight:600;
 }
 .flag{
@@ -252,12 +255,16 @@ body{
 
 /* HOW */
 .how{
-  padding:30px 0 70px;
+  padding:0px 0 70px;
+
+
 }
 .how-title-row{
+
   display:flex;
   align-items:center;
   gap:24px;
+  margin-top:-20px;
 }
 .how-ill{ width:130px; height:auto; margin-top:10px; }
 
