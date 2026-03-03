@@ -1,0 +1,24 @@
+{% extends "site_base.html" %}
+{% block title %}Kirish — HomeEdu{% endblock %}
+{% block content %}
+<h1 class="h1">Kirish</h1>
+<p class="sub">Email va parol bilan kiring.</p>
+
+<div class="card" style="margin-top: 16px; max-width: 520px;">
+  <form method="post" class="formgrid" novalidate>
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div>
+      <div class="label">Email</div>
+      {{ form.username }}{{ form.username.errors }}
+    </div>
+    <div>
+      <div class="label">Parol</div>
+      {{ form.password }}{{ form.password.errors }}
+    </div>
+
+    <button class="btn dark" type="submit">Kirish</button>
+    <a class="btn" href="{% url 'accounts:register' %}">Ro‘yxatdan o‘tish</a>
+  </form>
+</div>
+{% endblock %}

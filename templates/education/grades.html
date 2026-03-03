@@ -1,0 +1,17 @@
+{% extends "site_base.html" %}
+{% block title %}Maktab — HomeEdu{% endblock %}
+{% block content %}
+<h1 class="h1">Maktab</h1>
+<p class="sub">1–11 sinf bo‘yicha fanlar.</p>
+
+<div class="grid grid3" style="margin-top: 16px;">
+  {% for g in grades %}
+    <a class="card linklike" href="{% url 'education:subjects_by_grade' g.id %}">
+      <div style="font-weight:900; font-size: 18px;">{{ g }}</div>
+      <div class="muted" style="margin-top:8px;">Fanlar →</div>
+    </a>
+  {% empty %}
+    <div class="card muted">Admin paneldan Grade qo‘shing.</div>
+  {% endfor %}
+</div>
+{% endblock %}

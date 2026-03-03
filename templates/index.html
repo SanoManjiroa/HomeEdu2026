@@ -19,17 +19,21 @@
       <a class="brand" href="#top">HomeEdu</a>
 
       <nav class="navlinks" id="navlinks" aria-label="Asosiy menyu">
-        <a href="#home">Bosh sahifa</a>
-        <a href="#maktab">Maktab</a>
-        <a href="#ota">Ota-onalar</a>
-        <a href="#kurslar">Kurslar</a>
-        <a href="#vakansiya">Vakansiya</a>
-        <a href="#aloqa">Aloqa</a>
+        <a href="/">Bosh sahifa</a>
+        <a href="fanlar/">Maktab</a>
+        <a href="ota-onalar/">Ota-onalar</a>
+        <a href="kurslar/">Kurslar</a>
+        <a href="vakansiyalar/">Vakansiya</a>
+        <a href="aloqa/">Aloqa</a>
       </nav>
 
       <div class="profile">
         <img class="flag" src="{% static 'img/flag.jpg' %}" alt="UZ flag" />
-        <span class="profil" style="font-size:20px; margin-top:-12px;margin-left:10%;">Profil</span>
+        {% if request.user.is_authenticated %}
+          <a class="profil" style="font-size:20px; margin-top:-12px;margin-left:10%; text-decoration:none; color:var(--text);" href="{% url 'core:dashboard' %}">Dashboard</a>
+        {% else %}
+          <a class="profil" style="font-size:20px; margin-top:-12px;margin-left:10%; text-decoration:none; color:var(--text);" href="{% url 'accounts:login' %}">Kirish</a>
+        {% endif %}
       </div>
 
       <button class="burger" id="burger" aria-label="Menyuni ochish/yopish" aria-controls="navlinks" aria-expanded="false">
@@ -65,7 +69,7 @@
             </p>
           </div>
 
-          <a class="cta" href="#kurslar">
+          <a class="cta" href="auth/login/">
             Ro’yxatdan o’ting
             <span class="cta-arrow">→</span>
           </a>

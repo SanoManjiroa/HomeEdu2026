@@ -1,0 +1,18 @@
+{% extends "site_base.html" %}
+{% block title %}Kurslar — HomeEdu{% endblock %}
+{% block content %}
+<h1 class="h1">Kurslar</h1>
+<p class="sub">Kasb va kurslar ro‘yxati.</p>
+
+<div class="grid grid3" style="margin-top: 16px;">
+  {% for c in courses %}
+    <a class="card linklike" href="{% url 'courses:detail' c.id %}">
+      <div style="font-weight:900;">{{ c.title }}</div>
+      <div class="muted" style="margin-top:8px;">{{ c.description|truncatechars:140 }}</div>
+      <div class="muted" style="margin-top:10px;">Batafsil →</div>
+    </a>
+  {% empty %}
+    <div class="card muted">Course yo‘q.</div>
+  {% endfor %}
+</div>
+{% endblock %}

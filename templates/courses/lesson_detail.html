@@ -1,0 +1,29 @@
+{% extends "site_base.html" %}
+{% block title %}{{ lesson.title }} — HomeEdu{% endblock %}
+{% block content %}
+<div class="row">
+  <div>
+    <h1 class="h1">{{ lesson.title }}</h1>
+    <p class="sub">{{ lesson.course.title }}</p>
+  </div>
+  <a class="btn small" href="{% url 'courses:detail' lesson.course.id %}">← Kurs</a>
+</div>
+
+<div class="card" style="margin-top: 16px;">
+  {% if lesson.video_url %}
+    <div style="border-radius:16px; overflow:hidden; border:1px solid rgba(0,0,0,.10);">
+      <iframe style="width:100%; aspect-ratio: 16/9; border:0;" src="{{ lesson.video_url }}" allowfullscreen></iframe>
+    </div>
+  {% endif %}
+
+  {% if lesson.text %}
+    <div style="margin-top:14px; line-height: 1.7;">{{ lesson.text|linebreaks }}</div>
+  {% endif %}
+
+  {% if lesson.pdf_file %}
+    <div style="margin-top:14px;">
+      <a class="btn" href="{{ lesson.pdf_file.url }}" target="_blank">PDF ochish</a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

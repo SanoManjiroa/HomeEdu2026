@@ -1,0 +1,26 @@
+{% extends "site_base.html" %}
+{% block title %}{{ course.title }} — HomeEdu{% endblock %}
+{% block content %}
+<div class="row">
+  <div>
+    <h1 class="h1">{{ course.title }}</h1>
+    <p class="sub">{{ course.description|linebreaks }}</p>
+  </div>
+  <a class="btn small" href="{% url 'courses:list' %}">← Kurslar</a>
+</div>
+
+<div class="card" style="margin-top: 16px;">
+  <div class="tablelist">
+    {% for l in lessons %}
+      <a class="card linklike" style="padding:12px; border-radius:14px;" href="{% url 'courses:lesson_detail' l.id %}">
+        <div class="row">
+          <div style="font-weight:900;">{{ l.order }}. {{ l.title }}</div>
+          <span class="badge">Dars</span>
+        </div>
+      </a>
+    {% empty %}
+      <div class="muted">Lesson yo‘q.</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

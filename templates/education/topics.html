@@ -1,0 +1,26 @@
+{% extends "site_base.html" %}
+{% block title %}{{ subject.name }} — Mavzular — HomeEdu{% endblock %}
+{% block content %}
+<div class="row">
+  <div>
+    <h1 class="h1">{{ subject.name }}</h1>
+    <p class="sub">{{ subject.grade }}</p>
+  </div>
+  <a class="btn small" href="{% url 'education:subjects_by_grade' subject.grade.id %}">← Fanlar</a>
+</div>
+
+<div class="card" style="margin-top: 16px;">
+  <div class="tablelist">
+    {% for t in topics %}
+      <a class="card linklike" style="padding:12px; border-radius:14px;" href="{% url 'education:topic_detail' t.id %}">
+        <div class="row">
+          <div style="font-weight:900;">{{ t.order }}. {{ t.title }}</div>
+          <span class="badge">Ko‘rish</span>
+        </div>
+      </a>
+    {% empty %}
+      <div class="muted">Topic yo‘q.</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

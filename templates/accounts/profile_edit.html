@@ -1,0 +1,43 @@
+{% extends "site_base.html" %}
+{% block title %}Profilni tahrirlash — HomeEdu{% endblock %}
+{% block content %}
+<h1 class="h1">Profilni tahrirlash</h1>
+<p class="sub">Ma’lumotlaringizni yangilang.</p>
+
+<div class="card" style="margin-top: 16px;">
+  <form method="post" enctype="multipart/form-data" class="formgrid" novalidate>
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="grid grid2">
+      <div>
+        <div class="label">F.I.O</div>
+        {{ form.full_name }}{{ form.full_name.errors }}
+      </div>
+      <div>
+        <div class="label">Yosh</div>
+        {{ form.age }}{{ form.age.errors }}
+      </div>
+      <div>
+        <div class="label">Telefon</div>
+        {{ form.phone }}{{ form.phone.errors }}
+      </div>
+      <div>
+        <div class="label">Rol</div>
+        {{ form.role }}{{ form.role.errors }}
+      </div>
+      <div>
+        <div class="label">Sinf</div>
+        {{ form.grade }}{{ form.grade.errors }}
+      </div>
+      <div>
+        <div class="label">Avatar</div>
+        {{ form.avatar }}{{ form.avatar.errors }}
+      </div>
+    </div>
+
+    <button class="btn primary" type="submit">Saqlash</button>
+    <a class="btn" href="{% url 'accounts:profile' %}">Bekor</a>
+  </form>
+</div>
+{% endblock %}

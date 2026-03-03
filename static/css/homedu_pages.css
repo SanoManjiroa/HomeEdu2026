@@ -1,0 +1,26 @@
+.page{ padding: 28px 0 56px; }
+.h1{ font-size: 34px; font-weight: 700; margin: 0; }
+.sub{ color: var(--muted); margin: 10px 0 0; }
+.card{ border:1px solid rgba(0,0,0,.10); border-radius: 18px; background:#fff; padding: 16px; }
+.grid{ display:grid; gap: 14px; }
+.grid2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px){ .grid3{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 650px){ .grid2, .grid3{ grid-template-columns: 1fr; } }
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding: 10px 14px; border-radius: 14px; border:1px solid rgba(0,0,0,.14); background:#fff; font-weight: 700; cursor:pointer; text-decoration:none; color: var(--text); }
+.btn.primary{ background: var(--green); border-color: rgba(0,0,0,.10); }
+.btn.dark{ background:#111; color:#fff; border-color:#111; }
+.btn.small{ padding: 8px 12px; border-radius: 12px; font-size: 14px; }
+.linklike{ text-decoration:none; color: var(--text); }
+.flashwrap{ margin: 16px 0; display:grid; gap:10px; }
+.flash{ border:1px solid rgba(0,0,0,.10); border-radius: 14px; padding: 12px 14px; background:#fff; }
+.formgrid{ display:grid; gap: 12px; }
+.label{ font-weight: 700; font-size: 14px; }
+.input, select, textarea{ width:100%; padding: 10px 12px; border-radius: 12px; border:1px solid rgba(0,0,0,.18); outline:none; }
+textarea{ resize: vertical; }
+.tablelist{ display:grid; gap:10px; }
+.row{ display:flex; justify-content:space-between; gap:12px; align-items:center; }
+.badge{ display:inline-flex; padding: 4px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 700; }
+.footer{ border-top: 1px solid rgba(0,0,0,.06); padding: 16px 0; }
+.foot{ display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+.muted{ color: var(--muted); }

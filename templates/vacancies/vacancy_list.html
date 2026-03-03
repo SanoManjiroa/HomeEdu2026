@@ -1,0 +1,27 @@
+{% extends "site_base.html" %}
+{% block title %}Vakansiyalar — HomeEdu{% endblock %}
+{% block content %}
+<h1 class="h1">Vakansiyalar</h1>
+<p class="sub">Ish e’lonlari.</p>
+
+<div class="card" style="margin-top: 16px;">
+  <form class="row" style="gap:10px;">
+    <input class="input" name="q" value="{{ q }}" placeholder="Qidirish..." />
+    <button class="btn dark" type="submit">Qidirish</button>
+  </form>
+
+  <div class="tablelist" style="margin-top: 14px;">
+    {% for it in items %}
+      <a class="card linklike" style="padding:12px; border-radius:14px;" href="{% url 'vacancies:detail' it.id %}">
+        <div class="row">
+          <div style="font-weight:900;">{{ it.title }}</div>
+          <span class="badge">{{ it.location }}</span>
+        </div>
+        <div class="muted" style="margin-top:6px;">{{ it.salary_text }}</div>
+      </a>
+    {% empty %}
+      <div class="muted">Vakansiya yo‘q.</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

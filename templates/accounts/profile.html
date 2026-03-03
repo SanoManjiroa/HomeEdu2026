@@ -1,0 +1,33 @@
+{% extends "site_base.html" %}
+{% load static %}
+{% block title %}Profil — HomeEdu{% endblock %}
+{% block content %}
+<div class="row">
+  <div>
+    <h1 class="h1">Profil</h1>
+    <p class="sub">{{ request.user.email }}</p>
+  </div>
+  <div style="display:flex; gap:10px; flex-wrap:wrap;">
+    <a class="btn small" href="{% url 'core:dashboard' %}">Dashboard</a>
+    <a class="btn small" href="{% url 'accounts:profile_edit' %}">Tahrirlash</a>
+  </div>
+</div>
+
+<div class="card" style="margin-top: 16px;">
+  <div style="display:flex; gap:14px; align-items:center;">
+    {% if request.user.avatar %}
+      <img src="{{ request.user.avatar.url }}" style="width:76px;height:76px;border-radius:18px;object-fit:cover;" alt="avatar">
+    {% else %}
+      <img src="{% static 'img/default_avatar.png' %}" style="width:76px;height:76px;border-radius:18px;object-fit:cover;" alt="avatar">
+    {% endif %}
+    <div>
+      <div style="font-weight:800; font-size: 18px;">{{ request.user.full_name|default:"(FIO kiritilmagan)" }}</div>
+      <div class="muted" style="margin-top:6px;">
+        Rol: {{ request.user.get_role_display }}
+        {% if request.user.grade %} • {{ request.user.grade }}{% endif %}
+        {% if request.user.phone %} • {{ request.user.phone }}{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

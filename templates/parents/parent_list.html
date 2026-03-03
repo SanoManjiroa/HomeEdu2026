@@ -1,0 +1,17 @@
+{% extends "site_base.html" %}
+{% block title %}Ota-onalar — HomeEdu{% endblock %}
+{% block content %}
+<h1 class="h1">Ota-onalar</h1>
+<p class="sub">Video va tavsiyalar.</p>
+
+<div class="grid grid3" style="margin-top: 16px;">
+  {% for it in items %}
+    <a class="card linklike" href="{% url 'parents:detail' it.id %}">
+      <div style="font-weight:900;">{{ it.title }}</div>
+      <div class="muted" style="margin-top:8px;">{{ it.description|truncatechars:160 }}</div>
+    </a>
+  {% empty %}
+    <div class="card muted">Kontent yo‘q.</div>
+  {% endfor %}
+</div>
+{% endblock %}

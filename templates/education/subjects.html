@@ -1,0 +1,23 @@
+{% extends "site_base.html" %}
+{% block title %}{{ grade }} fanlari — HomeEdu{% endblock %}
+{% block content %}
+<div class="row">
+  <div>
+    <h1 class="h1">{{ grade }} fanlari</h1>
+    <p class="sub">Fanni tanlang.</p>
+  </div>
+  <a class="btn small" href="{% url 'education:grades' %}">← Sinflar</a>
+</div>
+
+<div class="grid grid3" style="margin-top: 16px;">
+  {% for s in subjects %}
+    <a class="card linklike" href="{% url 'education:topics_by_subject' s.id %}">
+      <div style="font-weight:900;">{{ s.name }}</div>
+      <div class="muted" style="margin-top:8px;">{{ s.description|default:"" }}</div>
+      <div class="muted" style="margin-top:10px;">Mavzular →</div>
+    </a>
+  {% empty %}
+    <div class="card muted">Subject yo‘q.</div>
+  {% endfor %}
+</div>
+{% endblock %}

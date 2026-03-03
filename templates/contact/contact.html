@@ -1,0 +1,42 @@
+{% extends "site_base.html" %}
+{% block title %}Aloqa — HomeEdu{% endblock %}
+{% block content %}
+<h1 class="h1">Aloqa</h1>
+<p class="sub">Savolingiz bo‘lsa, yozing.</p>
+
+<div class="grid grid2" style="margin-top: 16px;">
+  <div class="card">
+    <div class="label">Kontakt</div>
+    <div style="margin-top:10px;" class="muted">
+      <div><b>Telefon:</b> {{ info.phone|default:"-" }}</div>
+      <div style="margin-top:6px;"><b>Email:</b> {{ info.email|default:"-" }}</div>
+      <div style="margin-top:6px;"><b>Telegram:</b> {{ info.telegram|default:"-" }}</div>
+      {% if info.address %}<div style="margin-top:6px;"><b>Manzil:</b> {{ info.address }}</div>{% endif %}
+    </div>
+  </div>
+
+  <div class="card">
+    <form method="post" class="formgrid" novalidate>
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div>
+        <div class="label">F.I.O</div>
+        {{ form.full_name }}{{ form.full_name.errors }}
+      </div>
+      <div>
+        <div class="label">Telefon</div>
+        {{ form.phone }}{{ form.phone.errors }}
+      </div>
+      <div>
+        <div class="label">Email</div>
+        {{ form.email }}{{ form.email.errors }}
+      </div>
+      <div>
+        <div class="label">Xabar</div>
+        {{ form.message }}{{ form.message.errors }}
+      </div>
+      <button class="btn dark" type="submit">Yuborish</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

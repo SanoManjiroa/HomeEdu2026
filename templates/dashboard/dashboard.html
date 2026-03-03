@@ -1,0 +1,95 @@
+{% extends "site_base.html" %}
+{% load static %}
+{% block title %}Dashboard — HomeEdu{% endblock %}
+{% block content %}
+<div class="row" style="margin-top: 8px;">
+  <div>
+    <h1 class="h1">Dashboard</h1>
+    <p class="sub">Xush kelibsiz, {{ request.user.full_name|default:request.user.email }}.</p>
+  </div>
+  <div style="display:flex; gap:10px; flex-wrap:wrap;">
+    <a class="btn small" href="{% url 'accounts:profile' %}">Profil</a>
+    <a class="btn small dark" href="{% url 'accounts:logout' %}">Chiqish</a>
+  </div>
+</div>
+
+<div class="grid grid2" style="margin-top: 16px;">
+  <div class="card">
+    <div class="row">
+      <div style="display:flex; gap:12px; align-items:center;">
+        {% if request.user.avatar %}
+          <img src="{{ request.user.avatar.url }}" alt="avatar" style="width:56px;height:56px;border-radius:16px;object-fit:cover;">
+        {% else %}
+          <img src="{% static 'img/default_avatar.png' %}" alt="avatar" style="width:56px;height:56px;border-radius:16px;object-fit:cover;">
+        {% endif %}
+        <div>
+          <div style="font-weight:800;">{{ request.user.full_name|default:"(FIO kiritilmagan)" }}</div>
+          <div class="muted" style="font-size:14px;">{{ request.user.get_role_display }}{% if request.user.grade %} • {{ request.user.grade }}{% endif %}</div>
+        </div>
+      </div>
+      <a class="btn small" href="{% url 'accounts:profile_edit' %}">Tahrirlash</a>
+    </div>
+
+    {% if request.user.role == "student" and request.user.grade %}
+      <div style="margin-top: 14px;">
+        <div class="label">Sizga tavsiya: {{ request.user.grade }} fanlari</div>
+        <div class="tablelist" style="margin-top: 10px;">
+          {% for s in subjects %}
+            <a class="card linklike" style="padding:12px; border-radius:14px;" href="{% url 'education:topics_by_subject' s.id %}">
+              <div class="row">
+                <div style="font-weight:800;">{{ s.name }}</div>
+                <span class="badge">Mavzular →</span>
+              </div>
+            </a>
+          {% empty %}
+            <div class="muted">Hozircha fanlar yo‘q. Admin paneldan qo‘shing.</div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if request.user.role == "parent" %}
+      <div style="margin-top: 14px;">
+        <div class="label">Ota-onalar uchun</div>
+        <div class="grid" style="margin-top: 10px;">
+          {% for it in parent_items %}
+            <a class="card linklike" href="{% url 'parents:detail' it.id %}">
+              <div style="font-weight:800;">{{ it.title }}</div>
+              <div class="muted" style="margin-top:6px;">{{ it.description|truncatechars:120 }}</div>
+            </a>
+          {% empty %}
+            <div class="muted">Kontent yo‘q. Admin’dan ParentContent qo‘shing.</div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <div class="label">Tez kirish</div>
+    <div class="grid" style="margin-top: 10px;">
+      <a class="btn primary" href="{% url 'education:grades' %}">Maktab (1–11 sinf)</a>
+      <a class="btn" href="{% url 'courses:list' %}">Kurslar</a>
+      <a class="btn" href="{% url 'vacancies:list' %}">Vakansiyalar</a>
+      <a class="btn" href="{% url 'contact:contact' %}">Aloqa</a>
+    </div>
+
+    <div style="margin-top: 16px;">
+      <div class="label">Top vakansiyalar</div>
+      <div class="grid" style="margin-top: 10px;">
+        {% for v in top_vacancies %}
+          <a class="card linklike" href="{% url 'vacancies:detail' v.id %}">
+            <div class="row">
+              <div style="font-weight:800;">{{ v.title }}</div>
+              <span class="badge">{{ v.location }}</span>
+            </div>
+            <div class="muted" style="margin-top:6px;">{{ v.salary_text }}</div>
+          </a>
+        {% empty %}
+          <div class="muted">Hozircha vakansiya yo‘q.</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
